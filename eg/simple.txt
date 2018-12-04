@@ -1,0 +1,11 @@
+One Sample.
+
+foo bar baz
+banana ananas apple
+car bus train
+flip flop yeah
+
+1	&  2	& 3
+10	& 20	& 30
+100	& 200	& 300
+0.1	& 0.2	& 0.3

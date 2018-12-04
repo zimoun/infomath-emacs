@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+
+\author{John Doe}
+\date{\today}
+\title{Materials from IEEE Author package}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+These instructions give you guidelines for preparing papers for
+IEEE Transactions and Journals. Use this document as a template if you are
+using \LaTeX. Otherwise, use this document as an
+instruction set. The electronic file of your paper will be formatted further
+at IEEE. Paper titles should be written in uppercase and lowercase letters,
+not all uppercase.
+\end{abstract}
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+If your paper is intended for a conference, please contact your
+conference editor concerning acceptable word processor formats for your
+particular conference. IEEE will do the final formatting of your
+paper. If your paper is intended for a conference, please observe the
+conference page limits.
+
+
+\subsection{Abbreviations and Acronyms}
+\label{sec:abrev}
+
+Define abbreviations and acronyms the first time they are used in the text,
+even after they have already been defined in the abstract. Abbreviations
+such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that
+incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N.
+R. S.'' Do not use abbreviations in the title unless they are unavoidable
+(for example, ``IEEE'' in the title of this article).
+
+The Stoke's theorem reads,
+\begin{equation}
+  \label{eq:beautiful}
+  \int_{\partial\Omega} \omega = \int_\Omega d\omega
+\end{equation}
+which means,
+\begin{equation}
+  \label{sec:ugly}
+  \int_\Gamma \mathbf{F}\cdot d\mathbf{\Gamma}
+  =
+  \int\int_S \nabla\times\mathbf{F}\cdot dS
+\end{equation}
+and everybody uses it because it rocks!
+
+
+\subsection{Other Recommendations}
+\label{sec:reco}
+
+Use one space after periods and colons. Hyphenate complex modifiers:
+``zero-field-cooled magnetization.'' Avoid dangling participles, such as,
+``Using \eqref{eq:einstein}, the potential was calculated.'' [It is not clear who or what
+used \eqref{eq:einstein}.] Write instead, ``The potential was calculated by using \eqref{eq:einstein},'' or
+``Using \eqref{eq:einstein}, we calculated the potential.''
+
+
+\section{Where I type stuff}
+\label{sec:my-stuff}
+
+Number equations consecutively with equation numbers in parentheses
+flush with the right margin, as in \eqref{eq:einstein}. Punctuate
+equations when they are part of a sentence, as in
+\begin{equation}\label{eq:einstein}
+  E=mc^2.
+\end{equation}
+Then do not forget to cite \cite{Saad2002_book}.
+
+\subsection{The table part}
+\label{sec:fig}
+
+Be aware of the different meanings of the homophones ``affect'' (usually a
+verb) and ``effect'' (usually a noun), ``complement'' and ``compliment,''
+``discreet'' and ``discrete,'' ``principal'' (e.g., ``principal
+investigator'') and ``principle'' (e.g., ``principle of measurement''). Do
+not confuse ``imply'' and ``infer.'' See \cite{getdp-ieee1999}.
+\begin{table}[!h]
+  \centering
+  \caption{My table}
+  \label{tab:student}
+  \begin{tabular}{ll|c}
+    Name & City & Editor \\
+    \hline
+    Berty & Vesouls & VSCode \\
+    Simon & Montbazens & Emacs \\
+    You & Paris & Emacs?
+  \end{tabular}
+\end{table}
+Prefixes such as ``non,'' ``sub,'' ``micro,'' ``multi,'' and ``ultra'' are
+not independent words; they should be joined to the words they modify,
+usually without a hyphen. There is no period after the ``et'' in the Latin
+abbreviation ``\emph{et al.}'' (it is also italicized). The abbreviation ``i.e.,'' means
+``that is,'' and the abbreviation ``e.g.,'' means ``for example'' (these
+abbreviations are not italicized).
+
+
+\subsection{Other stuff}
+\label{sec:other}
+
+Please use ``soft'' (e.g., \verb|\eqref{eq:einstein}|) cross references instead
+of ``hard'' references (e.g., \verb|(1)|). That will make it possible
+to combine sections, add equations, or change the order of figures or
+citations without having to go through the file line by line.
+
+\bibliographystyle{plain}
+\bibliography{the}
+
+\end{document}

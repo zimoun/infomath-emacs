@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+
+\TeX{} is a typesetting computer program created by \emph{Donald Knuth},
+originally for his magnum opus, \textsf{The Art of Computer
+  Programming}.It takes a "plain" text file and converts it into a
+high-quality document for printing or on-screen viewing.
+
+\LaTeX{} is a macro system built on top of \TeX{} that aims to simplify its
+use and automate many common formatting tasks. It is the de-facto
+standard for academic journals and books, and provides some of the best
+typography free software has to offer.
+
+\input{table1.tex}
+
+\emph{Leslie B. Lamport} (born February 7, 1941) is an American computer
+scientist. Lamport is best known for his seminal work in distributed
+systems and as the initial developer of the document preparation system
+\LaTeX. He was the winner of the 2013 Turing Award for imposing clear,
+well-defined coherence on the seemingly chaotic behavior of distributed
+computing systems, in which several autonomous computers communicate
+with each other by passing messages. He devised important algorithms and
+developed formal modeling and verification protocols that improve the
+quality of real distributed systems. These contributions have resulted
+in improved correctness, performance, and reliability of computer
+systems.
+
+\begin{table}[h]
+  \input{table2.tex}
+  \caption{A nice \textsc{Table}}
+\end{table}
+
+
+\end{document}

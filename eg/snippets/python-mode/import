@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# -*- mode: snippet -*-
+# name: num...
+# key: num...
+# --
+
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.linalg as la

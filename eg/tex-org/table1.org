@@ -1,0 +1,14 @@
+#+BEGIN_SRC text :exports none
+  # Explanations not exported
+  # Export this table with the sequence
+  C-c C-e C-b l l
+  using the Body Only option
+#+END_SRC
+
+
+|    a |    b |
+|------+------|
+|   11 |    2 |
+|  333 | 4444 |
+|    5 |  666 |
+| 7777 |   88 |
