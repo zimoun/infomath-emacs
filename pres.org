@@ -410,6 +410,9 @@ http://blog.zepyaf.com/wp-content/uploads/2011/12/Capture-d’écran-2011-12-21-
 http://www.starsportsbet.co.uk/wp-content/uploads/2015/11/garyplayer.jpg
 
 **** Show me                                               :LIVE:noexport:
+:PROPERTIES:
+:CUSTOM_ID: tuto
+:END:
 
 The included TUTORIAL is a good start. To open it: =C-h t=
 
@@ -440,8 +443,11 @@ https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 @simon: check your cheatsheet :-)
 
 **** Show me                                               :LIVE:noexport:
+:PROPERTIES:
+:CUSTOM_ID: common
+:END:
 
-#+BEGIN_SRC text :tangle (prog1 "eg/simple.txt" (make-directory "eg/" "."))
+#+BEGIN_SRC text :tangle (prog1 "eg/simple.txt" (make-directory "eg/" ".")) :exports none
   One Sample.
 
   foo bar baz
@@ -456,8 +462,10 @@ https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 #+END_SRC
 
 How to change the background color and the selected region:
-=M-x set-background-color=
-=(set-face-attribute 'region nil :background "yellow")=
+1) =M-x set-background-color=
+2) =(set-face-attribute 'region nil :background "yellow")=
+
+--
 
 + GUI
 + Write text
@@ -1101,6 +1109,9 @@ https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-343
   #+END_SRC
 
 **** Show me                                               :LIVE:noexport:
+:PROPERTIES:
+:CUSTOM_ID: latex
+:END:
 
 - Insert environment =C-c C-o= equation, table, tabular, figure
 - RefTeX =C-c ==
@@ -1115,10 +1126,10 @@ https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-343
 - Spell word =M-$=
 - Spelling corrector =C-$= (=M-x ispell-change-dictionary=)
 - Close the file
-- Install AucTeX: =M-x package-list-packages=
-  =C-u C-s ^  auctex= then =i x=
-  It is ^ two spaces auctex.
-  The character ^ means for regexp: beginning of the line.
+- Install Auc\TeX: =M-x package-list-packages=
+  then =C-u C-s ^  auctex= and =i x=.
+  It is =^= two spaces =auctex=.
+  The character =^= means for regexp: beginning of the line.
 - Reopen the file
 - Insert section =C-c C-s TAB=
 - Insert environement =C-c C-e TAB=
@@ -1278,6 +1289,9 @@ https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-343
 - ...
 
 **** Show me                                               :LIVE:noexport:
+:PROPERTIES:
+:CUSTOM_ID: misc
+:END:
 
 - Dired =C-x C-d=
   + Open the help: =C-h m=
@@ -1286,7 +1300,7 @@ https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-343
   + edit name =C-x C-q= then =C-c C-c=
   + mark files and copy them to subfolder
 - EDiff
-  #+BEGIN_SRC latex :tangle "eg/tex/article-modif.tex"
+  #+BEGIN_SRC latex :tangle "eg/tex/article-modif.tex" :exports none
 
     \documentclass[11pt]{article}
     \usepackage[utf8]{inputenc}
@@ -1423,7 +1437,8 @@ https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-343
   + Reset Control acts as expected by Emacs =C-c C-j=
   - EShell is like IPython for Emacs and Elisp
     =M-x eshell=
-    see http://www.howardism.org/Technical/Emacs/eshell-present.html
+
+    [[http://www.howardism.org/Technical/Emacs/eshell-present.html][=www.howardism.org/Technical/Emacs/eshell-present.html=]]
 - Change tabs vs space convention (python) =M-x tabify=
 - Select region then =M-x indent-rigidly= then =Shift-<arrow>=
 
@@ -1471,6 +1486,9 @@ then develop your own system as the needs arises." -- [[http://lists.gnu.org/arc
 *** Demo
 
 **** Show me                                               :LIVE:noexport:
+:PROPERTIES:
+:CUSTOM_ID: org
+:END:
 
 - Markup:
   + _underline_: _

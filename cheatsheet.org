@@ -1,0 +1,29 @@
+# mode: org ; coding: utf-8
+#+STARTUP: content indent hideblocks
+#+OPTIONS: toc:nil
+
+#+TITLE: CheatSheet for the live demo
+#+AUTHOR: simon
+#+DATE:   Nov. 22, 2018
+#+EMAIL:  simon.tournier@univ-paris-diderot.fr
+
+
+* Nice Tutorial
+
+  #+INCLUDE: "pres.org::#tuto" :only-contents t
+
+* Common
+
+  #+INCLUDE: "pres.org::#common" :only-contents t
+
+* \LaTeX
+
+  #+INCLUDE: "pres.org::#latex" :only-contents t
+
+* Misc
+
+  #+INCLUDE: "pres.org::#misc" :only-contents t
+
+* Org
+
+  #+INCLUDE: "pres.org::#org" :only-contents t
