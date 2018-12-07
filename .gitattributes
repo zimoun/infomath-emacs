@@ -1,4 +1,7 @@
 
 .gitattributes export-ignore
 *.html export-ignore
+cheatsheet.pdf export-ignore
+
 *.html linguist-vendored
+*.org linguist-documentation=false
