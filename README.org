@@ -30,6 +30,14 @@ The presentation is served [[https://zimoun.github.com/infomath-emacs/pres.html]
 =https=). Maybe, your web-browser needs to allow non-secure connections
 (see address bar, lock icons, turn on/off) to display the presentaion.
 
+Last, the bootstrap only requires the file =pres.org= and Emacs (obviously):
+#+begin_src sh
+ emacs --batch -Q          \
+       pres.org	     	   \
+       -f org-babel-tangle \
+       1>&2 2> /dev/null
+#+end_src
+then the simple command =make= will do the rest. (Git required)
 
 --
 
