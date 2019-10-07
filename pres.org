@@ -3,11 +3,11 @@
 #+TAGS:    config(c) LIVE(l) noexport(n)
 
 #+REVEAL_THEME: sky
-#+REVEAL_ROOT:        https://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_MATHJAX_URL: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 #+REVEAL_HLEVEL:      2
 # #+REVEAL: split
-
+#+REVEAL_EXTRA_CSS: ./custom.css
 
 #+TITLE: Deal with Emacs
 #+AUTHOR: simon
@@ -123,6 +123,70 @@ If you want to generate them, you will use org-babel. It is as simply as
 the sequence: Control c Control v t or in short C-c C-v t.
 
 ** Export the presentation: Org->HTML with Reveal.js
+
+*** *Warning* about Reveal.js
+
+The framework Reveal.js is a moving target. Therefore what is working today may
+not work in the near future. Mainly, two sources of issues:
+ 1. CDN: see #+REVEAL_ROOT; which could point to deleted URL
+ 2. ox-reveal: hard to keep up-to-date the exporter with Emacs, Org and
+    Reveal.js versions
+
+If one consider long term support of the material, then one should consider to
+carefully track the Git commit of both Reveal.js and ox-reveal.
+
+Else, say that Reveal.js presentations is one shot presentation (junk
+presentation; junk as in junk food.)
+
+The default parameters change and if the result is not compliant with the
+expectations (font size, etc.) then an additional file tune them;
+see #+REVEAL_EXTRA_CSS.
+
+Last, the highlighting colours of the Emacs theme are used when
+exporting. Therefore, the last export before publishing must be done with the
+right Emacs theme---the default one seems well adapted; be careful to which
+highlighting colours are loaded, e.g., the option =-nw= changes the output---and
+the easiest way is to use this command line:
+#+begin_src shell
+  emacs -Q                           \
+        pres.org                     \
+        -l make.el                   \
+        -f org-reveal-export-to-html \
+        --kill
+#+end_src
+
+#+RESULTS:
+
+The order of the arguments matters:
+  1. do not load all the user's configuration
+  2. open the file pres.org
+  3. load the file make.el and evaluate the ELisp
+     #+name: make.el
+     #+begin_src elisp :tangle make.el
+       (defvar ox-reveal-path
+         (expand-file-name "elpa/org-reveal.git" user-emacs-directory))
+       (defvar htmlize-path
+         (expand-file-name "elpa/htmlize.git" user-emacs-directory))
+
+       (defun git-clone (from to)
+         (when (not (file-directory-p to))
+             (shell-command (format
+                             "git clone %s %s" from to))))
+
+       (git-clone "https://github.com/yjwen/org-reveal.git" ox-reveal-path)
+       (git-clone "https://github.com/emacsmirror/htmlize.git" htmlize-path)
+
+
+       (add-to-list 'load-path ox-reveal-path)
+       (add-to-list 'load-path htmlize-path)
+
+       (require 'ox-reveal)
+     #+end_src
+  4. apply the function org-reveal-export-to-html
+  5. close Emacs.
+The file make.el is a tiny file containing helpful paths: where org-reveal and
+htmlize are located.
+
 *** Check your version of Emacs
 
 Check your version of Emacs, choose a method:

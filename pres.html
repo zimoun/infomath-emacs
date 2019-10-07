@@ -7,10 +7,11 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/sky.css" id="theme"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/sky.css" id="theme"/>
 
+<link rel="stylesheet" href="./custom.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -18,7 +19,7 @@
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -27,18 +28,18 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">Deal with Emacs</h1><h2 class="author">simon</h2><h2 class="date">Nov. 22, 2018</h2><p class="date">Created: 2018-12-05 Wed 00:40</p>
+<section id="sec-title-slide"><h1 class="title">Deal with Emacs</h1><h2 class="author">simon</h2><h2 class="date">Nov. 22, 2018</h2><p class="date">Created: 2019-10-04 Mon 00:31</p>
 </section>
 
 
 <section>
-<section id="slide-sec-">
-<h2 id="org0004779">From where I talk ?</h2>
-<div class="outline-text-2" id="text-org0004779">
+<section id="slide-org80df873">
+<h2 id="org80df873">From where I talk ?</h2>
+<div class="outline-text-2" id="text-org80df873">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org723dd61">Who I am ?</h4>
+<section id="slide-org9d86959">
+<h4 id="org9d86959">Who I am ?</h4>
 <ul>
 <li>Mainly a geek guy</li>
 <li>Research Engineer at Univ. Paris 7 Diderot</li>
@@ -62,8 +63,8 @@
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org73ee5fa">My life</h4>
+<section id="slide-org7c0a6bb">
+<h4 id="org7c0a6bb">My life</h4>
 <ul>
 <li>2006-2010: Vim user&#x2026; and happy!</li>
 <li><p>
@@ -87,8 +88,8 @@ I am only an enthusiast user, not a guru
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org74952be">My typical use-cases</h4>
+<section id="slide-org4df1cc3">
+<h4 id="org4df1cc3">My typical use-cases</h4>
 <ul>
 <li>Edit multiple <i>languages</i>:
 Python, Julia, C/C++, (Fortran), R, Shell, \(\LaTeX\), Haskell, Scheme, etc.</li>
@@ -100,20 +101,20 @@ Python, Julia, C/C++, (Fortran), R, Shell, \(\LaTeX\), Haskell, Scheme, etc.</li
 
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="ask-at-point">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ask-at-point</span> (<span style="color: #228b22;">&amp;optional</span> i-know)
+<pre  class="src src-elisp" id="ask-at-point"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ask-at-point</span> (<span style="color: #228b22;">&amp;optional</span> i-know)
   <span style="color: #8b2252;">"Feel free to ask everything."</span>
   (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"P"</span>)
   (<span style="color: #a020f0;">if</span> i-know (message <span style="color: #8b2252;">"Quick Answer."</span>)
    (browse-url
     (concat <span style="color: #8b2252;">"https://www.ddg.gg/?q=emacs+"</span> (thing-at-point 'symbol)))))
-</pre>
+</code></pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgde5a170">Contents</h2>
+<section id="slide-orgbbf0d72">
+<h2 id="orgbbf0d72">Contents</h2>
 <ol>
 <li>Quick Intro to Emacs</li>
 <li>How to configure: <a href="https://github.com/jwiegley/use-package">use-package</a></li>
@@ -136,13 +137,13 @@ Python, Julia, C/C++, (Fortran), R, Shell, \(\LaTeX\), Haskell, Scheme, etc.</li
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org257cbdd">What Emacs is ?</h2>
-<div class="outline-text-2" id="text-org257cbdd">
+<section id="slide-org126057b">
+<h2 id="org126057b">What Emacs is ?</h2>
+<div class="outline-text-2" id="text-org126057b">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org45a604b">Definition</h4>
+<section id="slide-org070b098">
+<h4 id="org070b098">Definition</h4>
 <p>
 Emacs is a <b>User Interface</b> (UI) to manipulate text
 </p>
@@ -158,8 +159,8 @@ Emacs is a <b>User Interface</b> (UI) to manipulate text
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgdabed74">Theorem</h4>
+<section id="slide-orgcb788a6">
+<h4 id="orgcb788a6">Theorem</h4>
 <blockquote nil>
 <p>
 All what X is able, Emacs does it too.
@@ -171,8 +172,8 @@ All what X is able, Emacs does it too.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org6af013d">Corollary</h4>
+<section id="slide-org2faec8d">
+<h4 id="org2faec8d">Corollary</h4>
 
 <div class="figure">
 <p><img src="https://i.redd.it/l58yl5wh6fk11.png" alt="l58yl5wh6fk11.png" width="50%" />
@@ -180,15 +181,15 @@ All what X is able, Emacs does it too.
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org3b392ad">(counter) Example</h4>
+<section id="slide-orgfc10926">
+<h4 id="orgfc10926">(counter) Example</h4>
 <p>
 Start Emacs
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgf9d4a2d">How you feel when you start</h4>
+<section id="slide-orgd3a1e44">
+<h4 id="orgd3a1e44">How you feel when you start</h4>
 
 <div class="figure">
 <p><img src="https://www.woodbrass.com/images/SQUARE400/woodbrass/EAGLETONE+BLADE.JPG" alt="image" style="float:left" width="40%" />
@@ -199,9 +200,10 @@ Start Emacs
 <p><img src="http://drumshop.ru/i/1/3/13dda81c116fcdba42d29d63d4d29a3bm.jpg" alt="image" style="float:right" width="40%" />
 </p>
 </div>
+
 </section>
-<section id="slide-sec-">
-<h4 id="orgf3223c0">Weirdness comes from Oldness</h4>
+<section id="slide-org0d2632b">
+<h4 id="org0d2632b">Weirdness comes from Oldness</h4>
 <blockquote nil>
 <p>
 Initial release: 1976; 42 years ago (<a href="https://www.jwz.org/doc/emacs-timeline.html">timeline</a>)
@@ -228,8 +230,8 @@ Windows 1.0: <a href="https://en.wikipedia.org/wiki/Windows_1.0#cite_note-alsop1
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgaf399dd">A window is not a window</h4>
+<section id="slide-org5f60b3c">
+<h4 id="org5f60b3c">A window is not a window</h4>
 <ul>
 <li><i>"Frames"</i> are to Emacs what windows are to everything else</li>
 <li><i>"Windows"</i> are subdivisions of frames</li>
@@ -250,8 +252,8 @@ Windows 1.0: <a href="https://en.wikipedia.org/wiki/Windows_1.0#cite_note-alsop1
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgef3889d">Control C is not Copy</h4>
+<section id="slide-orgce01f11">
+<h4 id="orgce01f11">Control C is not Copy</h4>
 <blockquote nil>
 <p>
 C-x C-f means
@@ -304,8 +306,8 @@ M-x means press Alt and x
 </table>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgfde0776">Ah Bon?</h4>
+<section id="slide-org5fb0227">
+<h4 id="org5fb0227">Ah Bon?</h4>
 
 <div class="figure">
 <p><img src="http://blog.zepyaf.com/wp-content/uploads/2011/12/Capture-d%E2%80%99%C3%A9cran-2011-12-21-%C3%A0-09.54.32.png" alt="Capture-d%E2%80%99%C3%A9cran-2011-12-21-%C3%A0-09.54.32.png" />
@@ -313,8 +315,8 @@ M-x means press Alt and x
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org869a267">Keep Calm and Practise</h4>
+<section id="slide-org5f9d305">
+<h4 id="org5f9d305">Keep Calm and Practise</h4>
 
 <div class="figure">
 <p><img src="http://www.starsportsbet.co.uk/wp-content/uploads/2015/11/garyplayer.jpg" alt="garyplayer.jpg" />
@@ -324,15 +326,15 @@ M-x means press Alt and x
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgff2f583">Some basics</h2>
-<div class="outline-text-2" id="text-orgff2f583">
+<section id="slide-org76bd02a">
+<h2 id="org76bd02a">Some basics</h2>
+<div class="outline-text-2" id="text-org76bd02a">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org7a04cd0">Ressources</h3>
+<section id="slide-orga637f4a">
+<h3 id="orga637f4a">Ressources</h3>
 <ul>
 <li><a href="https://www.gnu.org/software/emacs/tour/">https://www.gnu.org/software/emacs/tour/</a></li>
 <li><a href="https://www.tuteurs.ens.fr/unix/editeurs/emacs.html">https://www.tuteurs.ens.fr/unix/editeurs/emacs.html</a></li>
@@ -341,8 +343,8 @@ M-x means press Alt and x
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org384852f"><a href="http://sachachua.com/blog">sachachua.com/blog</a></h4>
+<section id="slide-orgeb80bca">
+<h4 id="orgeb80bca"><a href="http://sachachua.com/blog">sachachua.com/blog</a></h4>
 
 <div class="figure">
 <p><img src="http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png" alt="How-to-Learn-Emacs-v2-Large.png" />
@@ -350,8 +352,8 @@ M-x means press Alt and x
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org1371188"><a href="http://sachachua.com/blog/about">sachachua.com/blog</a> 2</h4>
+<section id="slide-org57472f1">
+<h4 id="org57472f1"><a href="http://sachachua.com/blog/about">sachachua.com/blog</a> 2</h4>
 
 <div class="figure">
 <p><img src="http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs8.png" alt="How-to-Learn-Emacs8.png" width="75%" />
@@ -359,8 +361,8 @@ M-x means press Alt and x
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org1207faf">Refcard</h4>
+<section id="slide-orgc46c0c6">
+<h4 id="orgc46c0c6">Refcard</h4>
 <p>
 <img src="https://www.gnu.org/graphics/gnuemacsref.png" alt="gnuemacsref.png" />
 <a href="https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf</a>
@@ -369,8 +371,8 @@ M-x means press Alt and x
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org3d947ad">A demo speaks better than words</h3>
+<section id="slide-org3fb7b0f">
+<h3 id="org3fb7b0f">A demo speaks better than words</h3>
 <p>
 @simon: check your cheatsheet :-)
 </p>
@@ -378,8 +380,8 @@ M-x means press Alt and x
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org6c61733">Summary</h3>
+<section id="slide-orgb7a7e75">
+<h3 id="orgb7a7e75">Summary</h3>
 <blockquote nil>
 <p>
 "Habit is habit, and not to be flung out of the window by any man, but
@@ -389,8 +391,8 @@ coaxed downstairs a step at a time."
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org9d39151">Remember</h4>
+<section id="slide-org1987a29">
+<h4 id="org1987a29">Remember</h4>
 <ul>
 <li>Keyboard driven (source of power)</li>
 <li><b>Command</b> is first class citizen</li>
@@ -435,8 +437,8 @@ coaxed downstairs a step at a time."
 </table>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgd275f25">Remember 2</h4>
+<section id="slide-org271586f">
+<h4 id="org271586f">Remember 2</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -482,8 +484,8 @@ I DO NOT recommand <a href="https://www.gnu.org/software/emacs/manual/html_node/
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org430d548">Remember 3</h4>
+<section id="slide-orgfefe9e5">
+<h4 id="orgfefe9e5">Remember 3</h4>
 <blockquote nil>
 <p>
 Muscle one small step after another
@@ -498,8 +500,8 @@ Muscle one small step after another
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orgb5dafc2">How to configure</h2>
+<section id="slide-orgdd0d99a">
+<h2 id="orgdd0d99a">How to configure</h2>
 <p>
 The configuration is driven by
 </p>
@@ -512,37 +514,37 @@ The configuration is driven by
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org2a34b8e">Basics</h3>
-<div class="outline-text-3" id="text-org2a34b8e">
+<section id="slide-orge3c3d98">
+<h3 id="orge3c3d98">Basics</h3>
+<div class="outline-text-3" id="text-orge3c3d98">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="orga5d4e1e">Basics 1</h4>
+<section id="slide-org1329b1c">
+<h4 id="org1329b1c">Basics 1</h4>
 <p>
 Set variables
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">to see the life in colours</span>
+<pre  class="src src-elisp"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">to see the life in colours</span>
 (global-font-lock-mode 1)
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">to remove the icons bar</span>
 (tool-bar-mode 0)
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">what?!? who use the latteral bar to scroll ? :-)</span>
 (scroll-bar-mode 0)
-</pre>
+</code></pre>
 </div>
 <p>
 Set other variables
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="initial-message"><span style="color: #b22222;">;; </span><span style="color: #b22222;">remove the initial starting message</span>
+<pre  class="src src-elisp" id="initial-message"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">remove the initial starting message</span>
 (<span style="color: #a020f0;">setq</span> inhibit-startup-message t)
 
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">delete the *scratch* initial message</span>
 (<span style="color: #a020f0;">setq</span> initial-scratch-message nil)
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -550,58 +552,58 @@ Set other variables
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org7bb8a39">Basics 2</h4>
+<section id="slide-org0bf7db7">
+<h4 id="org0bf7db7">Basics 2</h4>
 <p>
 Conditional set
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="menu-bar"><span style="color: #b22222;">;; </span><span style="color: #b22222;">remove the menu when inside terminal</span>
+<pre  class="src src-elisp" id="menu-bar"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">remove the menu when inside terminal</span>
 (<span style="color: #a020f0;">if</span> (display-graphic-p)
     (menu-bar-mode 1)
   (menu-bar-mode 0))
-</pre>
+</code></pre>
 </div>
 <p>
 Rename commands
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="defalias"><span style="color: #b22222;">;; </span><span style="color: #b22222;">simplify the question-answer process</span>
+<pre  class="src src-elisp" id="defalias"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">simplify the question-answer process</span>
 (<span style="color: #a020f0;">defalias</span> '<span style="color: #0000ff;">yes-or-no-p</span> 'y-or-n-p)
 
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">M-x mode-* instead of the long name</span>
 (<span style="color: #a020f0;">defalias</span> '<span style="color: #0000ff;">mode-whitespace</span> 'whitespace-mode)
 (<span style="color: #a020f0;">defalias</span> '<span style="color: #0000ff;">mode-highlight</span> 'global-hl-line-mode)
-</pre>
+</code></pre>
 </div>
 <div class="org-src-container">
 
-<pre  class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">change the default file manager</span>
+<pre  class="src src-elisp"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">change the default file manager</span>
 (<span style="color: #a020f0;">defalias</span> '<span style="color: #0000ff;">list-directory</span> 'dired)
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orge6214fb">Basics 3</h4>
+<section id="slide-orgf31480e">
+<h4 id="orgf31480e">Basics 3</h4>
 <p>
 Bind
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="global-set-key"><span style="color: #b22222;">;; </span><span style="color: #b22222;">set global shortcuts</span>
+<pre  class="src src-elisp" id="global-set-key"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">set global shortcuts</span>
 (global-set-key [?\C-k] 'kill-whole-line)
 (global-set-key [?\C-$] 'ispell-region)
-</pre>
+</code></pre>
 </div>
 
 <div class="org-src-container">
 
-<pre  class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">special binding for specific mode (here dired)</span>
+<pre  class="src src-elisp"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">special binding for specific mode (here dired)</span>
 (define-key dired-mode-map (kbd <span style="color: #8b2252;">"E"</span>) 'dired-toggle-read-only))
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -609,14 +611,14 @@ Hook
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="hook"><span style="color: #b22222;">;; </span><span style="color: #b22222;">delete dirty spaces</span>
+<pre  class="src src-elisp" id="hook"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">delete dirty spaces</span>
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org069f4f8">A journey of a thousand miles begins with a single step</h4>
+<section id="slide-org94db4e1">
+<h4 id="org94db4e1">A journey of a thousand miles begins with a single step</h4>
 
 <div class="figure">
 <p><img src="https://i.pinimg.com/originals/a9/6f/db/a96fdbb368f4b75e4feccbece41721f2.jpg" alt="a96fdbb368f4b75e4feccbece41721f2.jpg" />
@@ -626,8 +628,8 @@ Hook
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org43858ea">Packages</h3>
+<section id="slide-org657b30e">
+<h3 id="org657b30e">Packages</h3>
 <blockquote nil>
 <p>
 "The coolest feature of Emacs is all the available packages."
@@ -640,11 +642,11 @@ Repos: <a href="https://elpa.gnu.org">ELPA</a> and <a href="https://melpa.org/#/
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org4b4767b">Built-in since Emacs 24</h4>
+<section id="slide-orgeba4745">
+<h4 id="orgeba4745">Built-in since Emacs 24</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="require-package">(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">package</span>)
+<pre  class="src src-elisp" id="require-package"><code trim>(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">package</span>)
 (<span style="color: #a020f0;">setq</span> package-enable-at-startup nil)
 (add-to-list 'package-archives
              <span style="color: #b22222;">;; </span><span style="color: #b22222;">`</span><span style="color: #008b8b;">use-package</span><span style="color: #b22222;">' is not in ELPA, as many more ;-)</span>
@@ -653,7 +655,7 @@ Repos: <a href="https://elpa.gnu.org">ELPA</a> and <a href="https://melpa.org/#/
                <span style="color: #b22222;">;; </span><span style="color: #b22222;">Add org-plus-contrib</span>
                '(<span style="color: #8b2252;">"org"</span> . <span style="color: #8b2252;">"http://orgmode.org/elpa/"</span>))
 (package-initialize)
-</pre>
+</code></pre>
 </div>
 <blockquote nil>
 <p>
@@ -662,43 +664,43 @@ Repos: <a href="https://elpa.gnu.org">ELPA</a> and <a href="https://melpa.org/#/
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org756db3c"><a href="https://github.com/jwiegley/use-package">use-package</a></h4>
+<section id="slide-orgd59175b">
+<h4 id="orgd59175b"><a href="https://github.com/jwiegley/use-package">use-package</a></h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="use-package"><span style="color: #b22222;">;; </span><span style="color: #b22222;">boostrap `</span><span style="color: #008b8b;">use-package</span><span style="color: #b22222;">' by John Wiegley</span>
+<pre  class="src src-elisp" id="use-package"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">boostrap `</span><span style="color: #008b8b;">use-package</span><span style="color: #b22222;">' by John Wiegley</span>
 (<span style="color: #a020f0;">unless</span> (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">load it</span>
 (<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">use-package</span>)
-</pre>
+</code></pre>
 </div>
 <p>
 Example:
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="dired"><span style="color: #b22222;">;; </span><span style="color: #b22222;">change the default file manager</span>
-(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">dired</span>
+<pre  class="src src-elisp" id="dired"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">change the default file manager</span>
+(use-package dired
   <span style="color: #483d8b;">:defer</span> t
   <span style="color: #483d8b;">:init</span>
   (<span style="color: #a020f0;">defalias</span> '<span style="color: #0000ff;">list-directory</span> 'dired)
   <span style="color: #483d8b;">:config</span>
   (define-key dired-mode-map (kbd <span style="color: #8b2252;">"E"</span>) 'dired-toggle-read-only))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgefd8eef">use-package 2</h4>
+<section id="slide-orga234baa">
+<h4 id="orga234baa">use-package 2</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="ess-julia"><span style="color: #b22222;">;; </span><span style="color: #b22222;">example of Julia configuration</span>
-(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">ess</span>
+<pre  class="src src-elisp" id="ess-julia"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">example of Julia configuration</span>
+(use-package ess
   <span style="color: #483d8b;">:ensure</span> t
   <span style="color: #483d8b;">:defer</span> t
-  <span style="color: #b22222;">;; </span><span style="color: #b22222;">:init                              ; example with non-standard loc.</span>
+  <span style="color: #b22222;">;; </span><span style="color: #b22222;">:init                                  ; example with non-standard loc.</span>
   <span style="color: #b22222;">;; </span><span style="color: #b22222;">(setq inferior-julia-program</span>
   <span style="color: #b22222;">;; </span><span style="color: #b22222;">   "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia")</span>
   <span style="color: #483d8b;">:mode</span> ((<span style="color: #8b2252;">"\\.jl\\'"</span> . ess-julia-mode))
@@ -708,12 +710,12 @@ Example:
   (<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">ess-utils</span>)
   (<span style="color: #a020f0;">setq</span> ess-eval-visibly-p nil)
   (<span style="color: #a020f0;">setq</span> ess-use-eldoc'script-only))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org6fe0a43">Yes, it's awesome!</h4>
+<section id="slide-orgf021ab2">
+<h4 id="orgf021ab2">Yes, it's awesome!</h4>
 
 <div class="figure">
 <p><img src="https://pics.me.me/that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-34353243.png" alt="that-awesome-moment-doctor-who-and-the-ta-r-d-is-when-you-34353243.png" />
@@ -723,8 +725,8 @@ Example:
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orge5cfb74">Two live Examples</h2>
+<section id="slide-org8f1b2ee">
+<h2 id="org8f1b2ee">Two live Examples</h2>
 <p>
 @simon: do not forget to:  <code>sh config-me.sh</code>
 </p>
@@ -734,29 +736,29 @@ Example:
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orge486866">latex-mode</h4>
+<section id="slide-org041b475">
+<h4 id="org041b475">latex-mode</h4>
 <div class="org-src-container">
 
-<pre  class="src src-text"># apt-get install aspell
-</pre>
+<pre  class="src src-text"><code trim># apt-get install aspell
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org124781f">python-mode</h4>
+<section id="slide-orgf4c3f79">
+<h4 id="orgf4c3f79">python-mode</h4>
 <div class="org-src-container">
 
-<pre  class="src src-text"># apt-get install virtualenv ipython
+<pre  class="src src-text"><code trim># apt-get install virtualenv ipython
 $ pip install jedi epc pylint --user
-</pre>
+</code></pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org323c9b1">More features (demo)</h2>
+<section id="slide-orgb91051a">
+<h2 id="orgb91051a">More features (demo)</h2>
 <ul>
 <li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html">Dired</a>: file manager / directory editor</li>
 <li><a href="https://www.gnu.org/software/emacs/manual/html_node/ediff/">EDiff</a>: diff, merge files</li>
@@ -773,14 +775,14 @@ $ pip install jedi epc pylint --user
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org79a7ab3">Another killer feature: Org-mode</h2>
+<section id="slide-org8b9d8b7">
+<h2 id="org8b9d8b7">Another killer feature: Org-mode</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orge8639de"><a href="https://orgmode.org">org-mode</a> is&#x2026;</h2>
+<section id="slide-orgb58d814">
+<h2 id="orgb58d814"><a href="https://orgmode.org">org-mode</a> is&#x2026;</h2>
 <blockquote nil>
 <p>
 "<a href="https://www.youtube.com/watch?v=fgizHHd7nOo">Awesome!</a>" &#x2013; <a href="https://github.com/jkitchin/dft-book">John Kitchin</a> (video)
@@ -799,8 +801,8 @@ $ pip install jedi epc pylint --user
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org21b69ff">Org is vast&#x2026;</h4>
+<section id="slide-org1ebb705">
+<h4 id="org1ebb705">Org is vast&#x2026;</h4>
 <p>
 &#x2026; <b>start small!</b>
 </p>
@@ -818,8 +820,8 @@ then develop your own system as the needs arises." &#x2013; <a href="http://list
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgd18dde0">My experience</h4>
+<section id="slide-org3d412f1">
+<h4 id="org3d412f1">My experience</h4>
 <ul>
 <li>Learn a couple of its capabilities</li>
 <li>Integrate them into your workflow</li>
@@ -834,12 +836,12 @@ could X"</li>
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org663cc3d">Demo</h4>
+<section id="slide-orga46808f">
+<h4 id="orga46808f">Demo</h4>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org60eb780">table and \(\LaTeX\)</h4>
+<section id="slide-org6a34e07">
+<h4 id="org6a34e07">table and \(\LaTeX\)</h4>
 <ul>
 <li>Write table with Org-mode (easy!)</li>
 <li>Export to <code>.tex</code>: <code>C-c C-e C-b l l</code> (body only)</li>
@@ -858,25 +860,25 @@ DEMO!
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org970e404">makefile</h4>
+<section id="slide-org0c8e5a4">
+<h4 id="org0c8e5a4">makefile</h4>
 <div class="org-src-container">
 
-<pre  class="src src-makefile"><span style="color: #0000ff;">all</span>: doc.tex table1.tex table2.tex
-    pdflatex doc.tex
+<pre  class="src src-makefile"><code trim><span style="color: #0000ff;">all</span>: doc.tex table1.tex table2.tex
+        pdflatex doc.tex
 
 <span style="color: #0000ff;">%.tex</span>: %.org
-     emacs -batch -q $<span style="color: #008b8b;">&lt;</span> --eval=<span style="color: #8b2252;">"(org-latex-export-to-latex nil nil t t)"</span>
+         emacs -batch -q $<span style="color: #008b8b;">&lt;</span> --eval=<span style="color: #8b2252;">"(org-latex-export-to-latex nil nil t t)"</span>
 
 <span style="color: #0000ff;">clean</span>:
-    -rm table?.tex
-    -rm doc.{aux,log}
-</pre>
+        <span style="color: #228b22;">-</span>rm table?.tex
+        <span style="color: #228b22;">-</span>rm doc.{aux,log}
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org13b5e14">Ressources</h4>
+<section id="slide-org9f63382">
+<h4 id="org9f63382">Ressources</h4>
 <ul>
 <li><a href="https://orgmode.org/worg/org-tutorials/org4beginners.html">Org for beginners</a></li>
 <li><a href="http://pragmaticemacs.com/org-mode-tutorials/">A tutorial/blog</a></li>
@@ -888,8 +890,8 @@ DEMO!
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org694b3ad">Computational Document / Reproducible workflow</h4>
+<section id="slide-orgea31914">
+<h4 id="orgea31914">Computational Document / Reproducible workflow</h4>
 <blockquote nil>
 <p>
 "Buzzword &#x2013; What'chu talkin' 'bout, Willis?" &#x2013; Arnold
@@ -907,20 +909,20 @@ DEMO!
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orga0bc634">Emacs Lisp</h2>
-<div class="outline-text-2" id="text-orga0bc634">
+<section id="slide-org4f3d0de">
+<h2 id="org4f3d0de">Emacs Lisp</h2>
+<div class="outline-text-2" id="text-org4f3d0de">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org68fb983">Lisp? Really?!?</h3>
-<div class="outline-text-3" id="text-org68fb983">
+<section id="slide-org967148d">
+<h3 id="org967148d">Lisp? Really?!?</h3>
+<div class="outline-text-3" id="text-org967148d">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="orgd168f19">Lisp is (Lots of ((Irritating, Spurious) (Parentheses)))</h4>
+<section id="slide-org1f95bf0">
+<h4 id="org1f95bf0">Lisp is (Lots of ((Irritating, Spurious) (Parentheses)))</h4>
 
 <div class="figure">
 <p><img src="https://imgs.xkcd.com/comics/lisp_cycles.png" alt="lisp_cycles.png" />
@@ -928,8 +930,8 @@ DEMO!
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc484887">Lisp? tell me more&#x2026;</h4>
+<section id="slide-org74a0d3c">
+<h4 id="org74a0d3c">Lisp? tell me more&#x2026;</h4>
 <p>
 First appeared 1958; 60 years ago
 </p>
@@ -950,8 +952,8 @@ First appeared 1958; 60 years ago
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc9818ee">Hacker (<a href="https://en.wikipedia.org/wiki/Paul_Graham_(programmer)">Paul Graham</a>) citing Hacker (<a href="https://en.wikipedia.org/wiki/Eric_S._Raymond">Eric S. Raymond</a>): More <a href="http://www.paulgraham.com/avg.html">here</a>, <a href="http://www.paulgraham.com/diff.html">here</a> or <a href="http://www.paulgraham.com/quotes.html">here</a>.</h4>
+<section id="slide-org9b49459">
+<h4 id="org9b49459">Hacker (<a href="https://en.wikipedia.org/wiki/Paul_Graham_(programmer)">Paul Graham</a>) citing Hacker (<a href="https://en.wikipedia.org/wiki/Eric_S._Raymond">Eric S. Raymond</a>): More <a href="http://www.paulgraham.com/avg.html">here</a>, <a href="http://www.paulgraham.com/diff.html">here</a> or <a href="http://www.paulgraham.com/quotes.html">here</a>.</h4>
 <blockquote nil>
 <p>
 Finally, the truly serious hacker should consider learning Lisp:
@@ -974,8 +976,8 @@ More <a href="http://www.paulgraham.com/avg.html">here</a>, <a href="http://www.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgce871c5">True!</h4>
+<section id="slide-orgacd0014">
+<h4 id="orgacd0014">True!</h4>
 
 <div class="figure">
 <p><img src="https://media.giphy.com/media/maIEBUU5OmrMA/giphy-facebook_s.jpg" alt="giphy-facebook_s.jpg" />
@@ -983,8 +985,8 @@ More <a href="http://www.paulgraham.com/avg.html">here</a>, <a href="http://www.
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgf2ac41c">Old pot, good jam</h4>
+<section id="slide-orgd298c86">
+<h4 id="orgd298c86">Old pot, good jam</h4>
 <ul>
 <li><p>
 <a href="https://julialang.org/blog/2012/02/why-we-created-julia">Julia</a> uses lisp (parser; try: <code>julia --lisp</code>) and lot of concepts
@@ -1016,8 +1018,8 @@ Supported by <a href="https://guix-hpc.bordeaux.inria.fr/about">INRIA Bordeaux</
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org3b58f19">Emacs Lisp (ELisp) Ressources</h3>
+<section id="slide-org97ab452">
+<h3 id="org97ab452">Emacs Lisp (ELisp) Ressources</h3>
 <ul>
 <li><a href="https://www.gnu.org/software/emacs/manual/eintr.html">https://www.gnu.org/software/emacs/manual/eintr.html</a></li>
 <li><a href="http://ergoemacs.org/emacs/elisp.html">http://ergoemacs.org/emacs/elisp.html</a></li>
@@ -1035,14 +1037,14 @@ by Bastien Guerry (Org-mode maintainer)
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org56c4f79">Basics</h3>
+<section id="slide-orge52b78b">
+<h3 id="orge52b78b">Basics</h3>
 <div class="org-src-container">
 
-<pre  class="src src-elisp" id="config-lisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">work with parenthesis</span>
+<pre  class="src src-elisp" id="config-lisp"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">work with parenthesis</span>
 (show-paren-mode 1)       <span style="color: #b22222;">; </span><span style="color: #b22222;">highlight matching parens</span>
 (electric-pair-mode 1)    <span style="color: #b22222;">; </span><span style="color: #b22222;">open-close parens</span>
-</pre>
+</code></pre>
 </div>
 <ul>
 <li><p>
@@ -1071,11 +1073,11 @@ end of S-expression
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgbefb3f8">Basics 1</h4>
+<section id="slide-orgb357db1">
+<h4 id="orgb357db1">Basics 1</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">Declare variable</span>
+<pre  class="src src-elisp"><code trim><span style="color: #b22222;">;; </span><span style="color: #b22222;">Declare variable</span>
 (<span style="color: #a020f0;">setq</span> x 1)
 
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">Compute (infix)</span>
@@ -1090,34 +1092,34 @@ end of S-expression
 (cdr ll)
 <span style="color: #b22222;">;; </span><span style="color: #b22222;">Concatenate lists</span>
 (append ll (list 11 22 33 44 55) (list <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"bb"</span> <span style="color: #8b2252;">"ccc"</span>))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgddd99d0">Basics 2</h4>
+<section id="slide-org883d8f1">
+<h4 id="org883d8f1">Basics 2</h4>
 <p>
 Function
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">hello-world</span> (name)
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">hello-world</span> (name)
   <span style="color: #8b2252;">"Simply Hello World function.</span>
 
 <span style="color: #8b2252;">Do stuff.</span>
 <span style="color: #8b2252;">And other stuff.</span>
 <span style="color: #8b2252;">The argument name provides a name to helloing."</span>
   (message <span style="color: #8b2252;">"Hello World: %s!"</span> name))
-</pre>
+</code></pre>
 </div>
 <p>
 Anonymous function
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">lambda</span> (name)
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">lambda</span> (name)
   (message <span style="color: #8b2252;">"Hello: %s!"</span> name))
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -1125,22 +1127,22 @@ Call/Apply a function: <code>(hello-world "Dude")</code>
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org9e2781d">Basics 3</h4>
+<section id="slide-org1fb6657">
+<h4 id="org1fb6657">Basics 3</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ask-at-point</span> (<span style="color: #228b22;">&amp;optional</span> i-know)
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ask-at-point</span> (<span style="color: #228b22;">&amp;optional</span> i-know)
   <span style="color: #8b2252;">"Feel free to ask everything."</span>
   (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"P"</span>)
   (<span style="color: #a020f0;">if</span> i-know (message <span style="color: #8b2252;">"Quick Answer."</span>)
    (browse-url
     (concat <span style="color: #8b2252;">"https://www.ddg.gg/?q=emacs+"</span> (thing-at-point 'symbol)))))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org3404a31">All the Lisp power at your fingertips</h4>
+<section id="slide-org28e231f">
+<h4 id="org28e231f">All the Lisp power at your fingertips</h4>
 
 <div class="figure">
 <p><img src="https://sayingimages.com/wp-content/uploads/minion-awesome-quote.jpg" alt="minion-awesome-quote.jpg" />
@@ -1150,8 +1152,8 @@ Call/Apply a function: <code>(hello-world "Dude")</code>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org234afec">Emacs is just a Lisp machine</h3>
+<section id="slide-org33c7f3a">
+<h3 id="org33c7f3a">Emacs is just a Lisp machine</h3>
 <ul>
 <li><p>
 Few built-in functions coded in C
@@ -1179,8 +1181,8 @@ Read manual then read code on <a href="https://elpa.gnu.org">ELPA</a> and <a hre
 e.g., eshell
 </p>
 </section>
-<section id="slide-sec-">
-<h4 id="org8211f54">MIT museum</h4>
+<section id="slide-org75b7db2">
+<h4 id="org75b7db2">MIT museum</h4>
 
 <div class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/MIT_lisp_machine.jpg/1836px-MIT_lisp_machine.jpg" alt="1836px-MIT_lisp_machine.jpg" />
@@ -1190,16 +1192,16 @@ e.g., eshell
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org69f54b4">Simple functions</h3>
-<div class="outline-text-3" id="text-org69f54b4">
+<section id="slide-org7eb11f1">
+<h3 id="org7eb11f1">Simple functions</h3>
+<div class="outline-text-3" id="text-org7eb11f1">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org6e5b85e">Upcase a word</h4>
+<section id="slide-org15cd425">
+<h4 id="org15cd425">Upcase a word</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/upcase-word</span> ()
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/upcase-word</span> ()
   <span style="color: #8b2252;">"Change from any word to UPPERCASE."</span>
   (<span style="color: #a020f0;">interactive</span>)
   (<span style="color: #a020f0;">let</span> ((beg (<span style="color: #a020f0;">progn</span>
@@ -1209,16 +1211,16 @@ e.g., eshell
                (forward-word)
                (point))))
         (upcase-region beg end)))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgb3420dd">Next!</h4>
+<section id="slide-orgaf6d005">
+<h4 id="orgaf6d005">Next!</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(global-set-key (kbd <span style="color: #8b2252;">"M-u"</span>) 'my/upcase-word)
-</pre>
+<pre  class="src src-elisp"><code trim>(global-set-key (kbd <span style="color: #8b2252;">"M-u"</span>) 'my/upcase-word)
+</code></pre>
 </div>
 <div class="org-center">
 <p>
@@ -1227,7 +1229,7 @@ What about Downcase ?
 </div>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/downcase-word</span> ()
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/downcase-word</span> ()
   <span style="color: #8b2252;">"Change from any word to DOWNCASE."</span>
   (<span style="color: #a020f0;">interactive</span>)
   (<span style="color: #a020f0;">let</span> ((beg (<span style="color: #a020f0;">progn</span>
@@ -1237,12 +1239,12 @@ What about Downcase ?
                (forward-word)
                (point))))
         (downcase-region beg end)))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgb616d35">Pattern ?</h4>
+<section id="slide-org32a7e3d">
+<h4 id="org32a7e3d">Pattern ?</h4>
 
 <div class="figure">
 <p><img src="http://mathandmultimedia.com/wp-content/uploads/2010/11/amazing1.png" alt="amazing1.png" />
@@ -1250,11 +1252,11 @@ What about Downcase ?
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org89503af">Refactor</h4>
+<section id="slide-orgb1909ff">
+<h4 id="orgb1909ff">Refactor</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/change-case-word</span> (fun)
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/change-case-word</span> (fun)
   <span style="color: #8b2252;">"Generic function to change the case of a word.</span>
 
 <span style="color: #8b2252;">When the `</span><span style="color: #008b8b;">point</span><span style="color: #8b2252;">' is somewhere in word, first get the `</span><span style="color: #008b8b;">backward-word</span><span style="color: #8b2252;">'</span>
@@ -1268,15 +1270,15 @@ What about Downcase ?
                (forward-word)
                (point))))
         (funcall fun beg end)))
-</pre>
+</code></pre>
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org00f1e4c">Simple, isn't?</h4>
+<section id="slide-orgca03619">
+<h4 id="orgca03619">Simple, isn't?</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/capitalize-word</span> ()
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/capitalize-word</span> ()
   <span style="color: #8b2252;">"Remap of `</span><span style="color: #008b8b;">capitalize-word</span><span style="color: #8b2252;">'."</span>
   (<span style="color: #a020f0;">interactive</span>)
   (eg/change-case-word 'capitalize-region))
@@ -1295,14 +1297,14 @@ What about Downcase ?
 (global-set-key (kbd <span style="color: #8b2252;">"M-c"</span>) 'eg/capitalize-word)
 (global-set-key (kbd <span style="color: #8b2252;">"M-u"</span>) 'eg/upcase-word)
 (global-set-key (kbd <span style="color: #8b2252;">"M-l"</span>) 'eg/downcase-word)
-</pre>
+</code></pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orga5390cb">Count Words</h3>
+<section id="slide-org23cb025">
+<h3 id="org23cb025">Count Words</h3>
 <p>
 Tutorial from VSCode to extend it
 </p>
@@ -1322,8 +1324,8 @@ Come on! It is not simpler than X.
 </p>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgf07bb04">Hum?</h4>
+<section id="slide-org612beb7">
+<h4 id="org612beb7">Hum?</h4>
 <blockquote nil>
 <p>
 M-=
@@ -1339,11 +1341,11 @@ M-x count-words-region
 </blockquote>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org6d5deac">Ok, do naive way!</h4>
+<section id="slide-org74cf40c">
+<h4 id="org74cf40c">Ok, do naive way!</h4>
 <div class="org-src-container">
 
-<pre  class="src src-elisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/count-words-region</span> (start end)
+<pre  class="src src-elisp"><code trim>(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">eg/count-words-region</span> (start end)
   <span style="color: #8b2252;">"Count words in the selected region.</span>
 
 <span style="color: #8b2252;">Worse than `</span><span style="color: #008b8b;">count-words-region</span><span style="color: #8b2252;">'."</span>
@@ -1356,7 +1358,7 @@ M-x count-words-region
 
     (message <span style="color: #8b2252;">"Region has %d words."</span> count-words-&gt;how-many)
     count-words-&gt;how-many))
-</pre>
+</code></pre>
 </div>
 <blockquote nil>
 <p>
@@ -1367,8 +1369,8 @@ M-x eg/count-words-region
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org9a8663c">mini-fem solver with ELisp</h3>
+<section id="slide-org43290a9">
+<h3 id="org43290a9">mini-fem solver with ELisp</h3>
 <p>
 Let only consider:
 </p>
@@ -1393,8 +1395,8 @@ u^\prime(1)=iku(1)
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org065a0ab">Demo</h4>
+<section id="slide-org2747517">
+<h4 id="org2747517">Demo</h4>
 <p>
 see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1</a>
 </p>
@@ -1402,8 +1404,8 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orge381230">A bit of elisp history</h3>
+<section id="slide-orgb22a818">
+<h3 id="orgb22a818">A bit of elisp history</h3>
 <ul>
 <li><a href="https://stallman.org/stallman-computing.html">Richard Stallman</a> (father of GNU Emacs) speaks about <a href="https://www.gnu.org/gnu/rms-lisp.en.html">Lisp</a></li>
 <li>Guy Steele (co-"father" of Emacs) still shares <a href="https://www.youtube.com/watch?v=ftcIcn8AmSY">insights</a> (video)</li>
@@ -1421,16 +1423,16 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 
 </ul>
 </section>
-<section id="slide-sec-">
-<h4 id="orgf6d0a6a">ELisp is not truly a Lisp?</h4>
+<section id="slide-orgba0a14a">
+<h4 id="orgba0a14a">ELisp is not truly a Lisp?</h4>
 
 <div class="figure">
 <p><img src="http://happilyevertinder.com/wp-content/uploads/2017/11/photo-20161216233158566.jpg" alt="photo-20161216233158566.jpg" />
 </p>
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org77c4b11">Facts</h4>
+<section id="slide-orgd2046f0">
+<h4 id="orgd2046f0">Facts</h4>
 <ul>
 <li>ELisp is  <a href="https://en.wikipedia.org/wiki/LISP_2">Lisp-2 not Lisp-1</a></li>
 <li>No Tail Call <a href="https://www.emacswiki.org/emacs/WhyDoesElispSuck">Optimization</a></li>
@@ -1445,8 +1447,8 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org69a663d">What Emacs is ?</h2>
+<section id="slide-orgd1da560">
+<h2 id="orgd1da560">What Emacs is ?</h2>
 
 <div class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Unico_Anello.png/220px-Unico_Anello.png" alt="220px-Unico_Anello.png" width="50%" />
@@ -1456,8 +1458,8 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org31aa854">Start now!</h2>
+<section id="slide-orgfe412d2">
+<h2 id="orgfe412d2">Start now!</h2>
 
 <div class="figure">
 <p><img src="https://spaceplace.nasa.gov/review/galactic-explorer/galactic_explorer.en.png" alt="galactic_explorer.en.png" />
@@ -1465,8 +1467,8 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 </div>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgc1d0c2c">Alternative Reality</h4>
+<section id="slide-orgcf17af8">
+<h4 id="orgcf17af8">Alternative Reality</h4>
 <ul>
 <li><a href="http://batsov.com/prelude/">Emacs Prelude</a></li>
 <li><a href="http://spacemacs.org">Spacemacs</a></li>
@@ -1479,8 +1481,8 @@ see <a href="https://github.com/zimoun/elfem1">https://github.com/zimoun/elfem1<
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="org64e83df">Key of Success</h4>
+<section id="slide-org5c01f1c">
+<h4 id="org5c01f1c">Key of Success</h4>
 <ul>
 <li><p>
 <b><i>Master a tool needs large amount of work</i></b>
@@ -1513,13 +1515,13 @@ Why computing tools should be different ?
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orge0fcba9">My personal conclusion</h2>
-<div class="outline-text-2" id="text-orge0fcba9">
+<section id="slide-orgd834e42">
+<h2 id="orgd834e42">My personal conclusion</h2>
+<div class="outline-text-2" id="text-orgd834e42">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org57d4baf">Why flamewar editor ?</h4>
+<section id="slide-org9916add">
+<h4 id="org9916add">Why flamewar editor ?</h4>
 <ul>
 <li>Our daily life is interacting with computers</li>
 <li>We are all differently <i>wired</i></li>
@@ -1540,8 +1542,8 @@ Editor should be freedom, not constraint and pain.
 </ul>
 
 </section>
-<section id="slide-sec-">
-<h4 id="orgf4cb147">&#x2026; because Emacs is the best! ;-)</h4>
+<section id="slide-org409026e">
+<h4 id="org409026e">&#x2026; because Emacs is the best! ;-)</h4>
 
 <div class="figure">
 <p><img src="http://hackles.org/strips/cartoon92.png" alt="cartoon92.png" />
@@ -1551,13 +1553,13 @@ Editor should be freedom, not constraint and pain.
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="orga5a2e62">Happy end?</h2>
-<div class="outline-text-2" id="text-orga5a2e62">
+<section id="slide-org16c0ab8">
+<h2 id="org16c0ab8">Happy end?</h2>
+<div class="outline-text-2" id="text-org16c0ab8">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org40bdd5e">Emacs is first at productive procrastination :-)</h4>
+<section id="slide-orgf2585b2">
+<h4 id="orgf2585b2">Emacs is first at productive procrastination :-)</h4>
 
 <div class="figure">
 <p><img src="http://www.phdcomics.com/comics/archive/phd010408s.gif" alt="phd010408s.gif" />
@@ -1567,26 +1569,12 @@ Editor should be freedom, not constraint and pain.
 </section>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
-<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-
-controls: true,
-progress: true,
-history: false,
-center: true,
-slideNumber: false,
-rollingLinks: false,
-keyboard: true,
-overview: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-transitionSpeed: 'default',
 multiplex: {
     secret: '', // null if client
     id: '', // id, obtained from socket.io server
@@ -1595,11 +1583,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
- { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
 });
 </script>
 </body>
