@@ -60,6 +60,14 @@ Go to the next subsection about General conventions.
   =https=). Maybe, your web-browser needs to allow non-secure connections
   (see address bar, lock icons, turn on/off) to display the presentaion.
 
+  Last, the bootstrap only requires the file =pres.org= and Emacs (obviously):
+  ,#+begin_src sh
+   emacs --batch -Q          \
+         pres.org	     	   \
+         -f org-babel-tangle \
+         1>&2 2> /dev/null
+  ,#+end_src
+  then the simple command =make= will do the rest. (Git required)
 
   --
 
@@ -150,19 +158,42 @@ the easiest way is to use this command line:
 #+begin_src shell
   emacs -Q                           \
         pres.org                     \
-        -l make.el                   \
+        -l config.el                 \
         -f org-reveal-export-to-html \
         --kill
 #+end_src
+or to just run =make= where:
+#+name: make
+#+begin_src makefile :tangle Makefile
+  # Makefile works with TAB
+  # therefore this is a syntax hack to avoid to be confused
+  # ### rule: dependencies ; command
+  # M-x whitespace-mode will show you if spaces are TAB or SPACE
 
-#+RESULTS:
+  bootstrap: .git-version init.el pres.html ; @echo Done.
+
+  .git-version: ; git --version > $@
+
+  init.el: pres.org ; emacs --batch -Q	\
+      pres.org				\
+      -f org-babel-tangle		\
+      1>&2 2> /dev/null
+
+  pres.html: pres.org ; emacs -Q		\
+      pres.org						\
+      -l config.el					\
+      -f org-reveal-export-to-html	\
+      --kill
+#+end_src
+
+
 
 The order of the arguments matters:
   1. do not load all the user's configuration
   2. open the file pres.org
   3. load the file make.el and evaluate the ELisp
-     #+name: make.el
-     #+begin_src elisp :tangle make.el
+     #+name: config.el
+     #+begin_src elisp :tangle config.el
        (defvar ox-reveal-path
          (expand-file-name "elpa/org-reveal.git" user-emacs-directory))
        (defvar htmlize-path
