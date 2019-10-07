@@ -309,6 +309,7 @@ If you use Windows, then please consider using Linux (or at least MacOS).
 3. Type (require 'ox-reveal)
 
 (see above about the General conventions)
+
 *** Export as any exporter
 
 1. Press Control c then Control e
@@ -423,6 +424,7 @@ All what X is able, Emacs does it too.
 https://www.woodbrass.com/images/SQUARE400/woodbrass/EAGLETONE+BLADE.JPG
 #+ATTR_HTML: :alt image :style float:right :width 40%
 http://drumshop.ru/i/1/3/13dda81c116fcdba42d29d63d4d29a3bm.jpg
+
 *** Weirdness comes from Oldness
 
 #+BEGIN_QUOTE
@@ -2020,6 +2022,38 @@ http://happilyevertinder.com/wp-content/uploads/2017/11/photo-20161216233158566.
 - [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Threads.html][Concurrency]] introduced with Emacs 26 (2018)
 - Simple [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html][Garbage Collector]] (mark&sweep)
 - and more that I do not understand
+
+*** Lisp-2 vs Lisp-1                                             :noexport:
+
+  1. Naive
+     #+begin_src elisp
+       (defun f1 (arg)
+         (if (listp arg)
+             (mapcar (lambda (x) (f1 x)) arg)
+           arg))
+     #+end_src
+  2. Wrong
+     #+begin_src elisp
+       (defun f2 (arg)
+         (if (listp arg)
+             (mapcar f2 arg)
+           arg))
+     #+end_src
+     =-> *** Eval error ***  Symbol’s value as variable is void: f2=
+  3. Fix
+     #+begin_src elisp
+       (defun f3 (arg)
+         (if (listp arg)
+             (mapcar #'f3 arg)
+           arg))
+     #+end_src
+  4. Explanations:
+     Elisp is Lisp-2: two namespaces. The function =f2= does not work because
+     =mapcar= looks in the variable /table/ and =f2= is not in because it is in
+     function /table/. The functions =f1= and =f3= work because... please!
+
+     =#'foo= means =(function foo)= and ='foo= means =(quote foo)=.
+     See [[info:elisp#Anonymous%20Functions][Info]] and [[help:function][Help]] documentation.
 
 * What Emacs is ?
 
